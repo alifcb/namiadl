@@ -296,4 +296,8 @@ left: 50%;
 .ui-content ul li{text-align:right !important;
 direction:rtl !important;}
 .ui-content ul{padding:10px 15px !important;}
+.ui-helper-hidden-accessible{display:none;}
+.ui-panel.ui-panel-display-overlay.ui-panel-open {
+    z-index: 20000 !important;
+}
 .ui-content ul .nd2-card{margin:0px 5px !important;}
