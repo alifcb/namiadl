@@ -180,7 +180,7 @@ if(Onlins==0){
 	new $.nd2Toast({   message :"اتصال شما به اینترنت برقرار نیست !!",ttl : 6000});
 return 0;
 }	
-
+document.getElementById(ids+File_Name).style.display="none";
  $scope.stuffs.push({title: File_Name, id: ids});
  $scope.evoice="file:///storage/sdcard0/Namiadl/"+File_Name;
  new $.nd2Toast({  
@@ -221,6 +221,7 @@ false,
 			document.getElementById('pr'+File_Name+ids).style.width=perc+'%';
 			document.getElementById('nd'+File_Name+ids).innerHTML=perc+'%';
 			if(perc==100){
+document.getElementById(ids+File_Name).style.display="block";
 new $.nd2Toast({   message : "دانلود فایل کامل شد",ttl : 4000});
 				//alert(perc);
 				}

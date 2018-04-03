@@ -298,7 +298,7 @@ direction:rtl !important;}
 .ui-content ul{padding:10px 15px !important;}
 .ui-helper-hidden-accessible{display:none;}
 .ui-panel.ui-panel-display-overlay.ui-panel-open {
-    z-index: 20000 !important;
+    z-index: 20000 ;
 }
-#leftpanel{z-index:999999;}
+#leftpanel{z-index:999999999 !important;}
 a{z-index:444444;}
