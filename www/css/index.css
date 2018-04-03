@@ -300,4 +300,5 @@ direction:rtl !important;}
 .ui-panel.ui-panel-display-overlay.ui-panel-open {
     z-index: 20000 !important;
 }
-.ui-content ul .nd2-card{margin:0px 5px !important;}
+#leftpanel{z-index:999999;}
+a{z-index:444444;}
