@@ -69,17 +69,17 @@ document.addEventListener("backbutton", function(e){
            e.preventDefault();
            navigator.app.exitApp();
        }
-      // else if($.mobile.activePage.is('#page2')){
-// $.mobile.changePage( "#one", { transition: "slideup"} );
-//  //$.mobile.changePage( "#one", { transition: "fade"} );
-//        }else if($.mobile.activePage.is('#page4')){
-//  $.mobile.changePage( "#page2", { transition: "slideup"} );
-//  //$.mobile.changePage( "#one", { transition: "fade"} );
-//       }else if($.mobile.activePage.is('#page3')){
-//  $.mobile.changePage( "#one", { transition: "slideup"} );
-//         }else if($.mobile.activePage.is('#page5')){
-//  $.mobile.changePage( "#one", { transition: "slideup"} );
-//       }
+       else if($.mobile.activePage.is('#page2')){
+ $.mobile.changePage( "#one", { transition: "slideup"} );
+  //$.mobile.changePage( "#one", { transition: "fade"} );
+        }else if($.mobile.activePage.is('#page4')){
+  $.mobile.changePage( "#page2", { transition: "slideup"} );
+  //$.mobile.changePage( "#one", { transition: "fade"} );
+       }else if($.mobile.activePage.is('#page3')){
+  $.mobile.changePage( "#one", { transition: "slideup"} );
+         }else if($.mobile.activePage.is('#page5')){
+  $.mobile.changePage( "#one", { transition: "slideup"} );
+       }
        else {
 	
 		 e.preventDefault();
