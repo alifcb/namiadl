@@ -5,7 +5,7 @@
     <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
     <content src="index.html" />
     <preference name="phonegap-version" value="cli-7.0.1" />
-    <preference name="pgb-builder-version" value="1" />
+    <preference name="pgb-builder-version" value="2" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
