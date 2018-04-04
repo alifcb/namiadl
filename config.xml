@@ -4,12 +4,11 @@
     <description>سرویس طرح بی نهایت مخابرات استان  کرمانشاه.</description>
     <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
     <content src="index.html" />
-    <preference name="DisallowOverscroll" value="true" />
+    <preference name="DisallowOverscroll" value="false" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreen" value="splash" />
     <preference name="SplashScreenDelay" value="5000" />
     <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
