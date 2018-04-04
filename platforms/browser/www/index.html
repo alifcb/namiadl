@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" /> 
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+   		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/waves/waves.min.css" />
+		<link rel="stylesheet" href="css/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+</head>
+<body class="noselect" ng-app="App" id="CenterCTRL"  ng-controller="CenterCTRL" ng-cloak>
+   <input id="online" value="0" type="hidden">
+   <input  id="film_flag" value="0" type="hidden">
+   <input  id="music_flag" value="0" type="hidden">
+   <input  id="mobile_flag" value="0" type="hidden">
+   <input  id="rele_flag" value="0" type="hidden">
+   <input  id="page_back" value="one" type="hidden">
+   <input  id="numload" value="0" type="hidden">
+   <input  id="catload" value="0" type="hidden">
+   <input  id="version" value="1" type="hidden">
+		<div data-role="page" class="nd2-no-menu-swipe" id="one">
+					<!-- panel left -->
+			<div data-role="panel" id="leftpanel2" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/examples/a.jpg" />
+					<div class="row">
+						<div class="col-xs-8">
+							<div class="box profile-text">
+								<strong>نامیا دانلود</strong>
+								<span class="subline">طرح دانلود بی نهایت</span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/examples/b.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost()"   data-icon="false"><i class="zmdi zmdi-view-web"></i>  لیست دانلود های گذشته</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().list_dl()"  data-icon="false"><i class="zmdi zmdi-assignment-returned"></i>  لیست دانلود های گذشته</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().page4()"  data-icon="false"><i class="zmdi zmdi-download"></i>  لیست دانلود ها در حال اجرا</a></li>
+				</ul>
+                <ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">دسته بندی</li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(9,1)" data-icon="false"><i class="zmdi zmdi-movie"></i>  فیلم</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(953,1)" data-icon="false"><i class="zmdi zmdi-collection-music"></i>  موزیک</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(5,1)" data-icon="false"><i class="zmdi zmdi-android"></i>  برنامه موبایل</a></li>
+				</ul>
+				<hr class="inset">
+			</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+                 <div ng-show="progrshow" class="progress"><div class="indeterminate"></div></div>
+			</div>
+             
+ 	 <div role="main" class="ui-content" data-inset="false" ng-show="loadshow">   
+     <div class="ow1 owl-carousel owl-theme">
+    <div class="item"><img alt="namia" src="img/examples/a.jpg"></div>
+    <div class="item"><img alt="namia" src="img/examples/b.jpg"></div>
+    <div class="item"><img alt="namia" src="img/examples/c.jpg"></div>
+    <div class="item"><img alt="namia" src="img/examples/d.jpg"></div>
+</div>
+<h6 class="nd2-title">
+	بازی و نرم افزار موبایل <a class="more"   ng-href="#page3" ng-click="npost(5,1)">بیشتر</a>
+</h6>
+ <div class=" ow2 owl-carousel owl-theme">
+<div class="item" ng-repeat="xcm in mobile">
+<div class="nd2-card">
+<a ng-click="post(xcm.id);">
+<div class="card-media" >
+		<img alt="namia" height="150px" src="{{xcm.pic}}">
+	<div class="card-title has-supporting-text">
+		<h5 class="card-subtitle">{{xcm.title}}</h5>
+	</div>
+</div>
+</a>
+</div></div>
+</div>
+<h6 class="nd2-title">
+	آخرین فیلم های سینمایی <a class="more"   ng-href="#page3" ng-click="npost(9,1)">بیشتر</a>
+</h6>
+         <div class=" ow3 owl-carousel owl-theme">
+<div class="item" ng-repeat="xcv in film">
+<div class="nd2-card">
+<a ng-click="post(xcv.id);"  >
+<div class="card-media" >
+		<img alt="namia" height="150px" src="{{xcv.pic}}">
+	<div class="card-title has-supporting-text">
+		<h5 class="card-subtitle">{{xcv.title}}</h5>
+	</div>
+</div>
+</a>
+</div></div>
+ 
+</div>
+<h6 class="nd2-title">
+	آخرین آهنگ های  <a class="more" ng-click="npost(953,1)" ng-href="#page3">موارد بیشتر</a> 
+</h6>
+         <div class=" ow4 owl-carousel owl-theme">
+<div class="item" ng-repeat="xcz in music">
+<div class="nd2-card">
+<a ng-click="post(xcz.id);" >
+<div class="card-media" >
+		<img alt="namia" height="150px" src="{{xcz.pic}}">
+	<div class="card-title has-supporting-text">
+		<h5 class="card-subtitle">{{xcz.title}}</h5>
+	</div>
+</div>
+</a>
+</div></div>
+ 
+</div>
+<h6 class="nd2-title">
+	Medium 2p <a class="more" ng-click="post(8724);" ng-href="#page3">موارد بیشتر</a>
+</h6>
+         <div class=" ow6 owl-carousel owl-theme">
+<div class="item"><div class="nd2-card">
+<div class="card-media">
+		<img alt="namia" src="img/examples/d.jpg">
+	<div class="card-title has-supporting-text">
+		<h3 class="card-primary-title">Biomaterial</h3>
+		<h5 class="card-subtitle">From Wikipedia, the free encyclopedia</h5>
+	</div>
+</div>
+</div></div>
+ 
+</div>
+</div>
+</div>
+  <div data-role="page" id="page2" data-transition="fade" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+             <a ng-Click="page4()" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-download"></i></a>
+ 				<a href="#leftpanel" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+                 <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
+			</div>
+ 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+    
+            <div class="nd2-card">
+ 	<div class="card-title has-avatar">
+		<h3 class="card-namia">{{posto.title}}</h3>
+		
+	</div>
+<div class="card-supporting-text has-action" ng-bind-html="posto.content"  >
+{{posto.content}}	
+</div>
+<video ng-show="video" controls id="videon" width="100%" height="210" >
+<source type="video/mp4" src="{{posto.video}}"></source>
+<span style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" data-mce-type="bookmark" class="mce_SELRES_start">﻿</span>مرورگر شما قادر به نمایش نیست<span style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" data-mce-type="bookmark" class="mce_SELRES_end">﻿</span>
+</video>
+<div class="card-supporting-text has-action"   >
+ 
+ <a  ng-repeat="xcl in posto.link" ng-click="download(xcl.linko,xcl.name,posto.id,posto.title,posto.pic)" id="{{posto.id}}{{xcl.name}}" class=" ui-btn ui-btn-icon-right ui-mini ui-btn-raised clr-warning" >{{xcl.text}}	</a>
+</div>
+<!--<div id="progr" ng-show="progr">
+<div id="showbar"></div>
+<div class="progress">
+  <div class="determinate" id="bloader"  style="width:0%"></div>
+</div></div>-->
+</div>            
+<h6 class="nd2-title">
+ محتوا مشابه
+</h6>
+ <div class="ow5 owl-carousel owl-theme" ng-include="htmltemp"  >
+ 
+ </div>
+  
+   </div>         
+</div>
+  <div data-role="page" id="page3" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+                <div ng-show="progrshow3" class="progress"><div class="indeterminate"></div></div>
+			</div>
+ 			<div role="main" style="height:1000px;" class="ui-content" data-inset="false" id="limore">
+            <ul   data-role="listview" data-icon="false" id="listscr" ng-include="listviee">
+            
+            </ul>
+            </div>
+            
+</div>
+  <div data-role="page" id="page4" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left4.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 					<a ng-click="list_dl();" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-assignment-returned"></i></a>
+                <a href="#leftpanel4" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.2s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+			</div>
+ 			<div role="main" class="ui-content" data-inset="false">
+            <div class="nd2-card"   >
+            <div class="card-title "  >
+            <p class="listst">لیست فایل های در حال دانلود <i class="zmdi zmdi-assignment-returned"></i></p><hr>
+            </div>
+            <ul data-role="listview" class="listdl" data-icon="false" id="progme">
+             
+            <div class="card-title " ng-repeat="stuff in stuffs">
+            <li ><div id="nd{{stuff.title}}{{stuff.id}}">0%</div><div id="{{stuff.title}}">{{stuff.title}}</div>
+            <div class="progress"><div class="determinate" id="pr{{stuff.title}}{{stuff.id}}"  style="width:0%"></div>
+            </div></li>
+            </div>
+            </ul>
+            
+            </div>
+            </div>
+            
+</div>
+  <div data-role="page" id="page5" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left5.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel5" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+			</div>
+ 			<div role="main" class="ui-content" data-inset="false" id="lidlo">
+            
+            <ul   data-role="listview" data-icon="false" id="listdlo" >
+            <li data-role="list-divider">
+		لیست محتوا های دانلود شده
+	</li>
+            <li ng-repeat="xnp in listdl" >
+		<a  ng-click="post(xnp.ids);" >
+			<div class="nd2-card card-media-right card-media-small" style="height:100px">
+					<div class="card-media">
+						<img src="{{xnp.pic}}">
+					</div>
+					<div class="card-title">
+						<h5 class="card-subtitle">{{xnp.title}}</h5>
+					</div>
+				</div>
+		</a>
+	</li>
+            </ul>
+            </div>
+            
+</div>
+    	<script src="js/jquery.min.js"></script> 
+        <script src="js/fastclick.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angularjs.js"></script>	
+		<script src="js/angular-sanitize.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="css/waves/waves.min.js"></script>
+		<script src="css/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+ 
+         <script type="text/javascript"> 
+	</script>
+      <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript"> 
+    
+           app.initialize();
+		   
+		$('.ow1').owlCarousel({
+    loop:true,
+	rtl:true,
+	autoplay:true,
+    autoplayTimeout:4000,
+    margin:0,
+    nav:false,
+	dots:false,
+     items:1,
+    
+})
+var int_mobile = setInterval(function(){ ssm() }, 2000);
+function ssm(){
+ var flagfd=document.getElementById('mobile_flag').value;
+ if(flagfd==1){ clearInterval(int_mobile);
+ $('.ow2').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+ 
+  });  
+}}
+var int_film = setInterval(function(){ ssd() }, 1000);
+function ssd(){
+ var flagf=document.getElementById('film_flag').value;
+ if(flagf==1){ clearInterval(int_film);
+ $('.ow3').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+ 
+  });  
+}}
+var int_music = setInterval(function(){ ssx() }, 2500);
+function ssx(){
+ var flagfx=document.getElementById('music_flag').value;
+ if(flagfx==1){ clearInterval(int_music);
+ $('.ow4').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+ 
+  });  
+}
+ }
+function postll(){ 
+ $('.owl5').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+  }); 
+  $('.reltwo').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+  }); 
+}
+function rele(){
+ //var int_rel= setInterval(function(){ rele() }, 1000);
+ setTimeout(function(){
+  var flagr=document.getElementById('rele_flag').value;
+  console.log('00');
+  if(flagr==1){ 
+// clearInterval(int_rel);
+ $('.ow5').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2,
+  }); 
+  }
+   }, 500);
+$('.ow5').trigger('refresh.owl.carousel');
+}
+		$('.ow6').owlCarousel({
+    loop:true,
+	rtl:true,
+    margin:10,
+	stagePadding: 30,
+    nav:false,
+	dots:false,
+	items:2
+});
+    </script>
+</body>
+</html>
