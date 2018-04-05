@@ -86,7 +86,7 @@ $scope.npost = function (ides,news) {
 	
  $http.get("http://namiadownload.ir/reg/manage/api.php?cat="+ides+"&numb="+vgh).then(function(response) {
 	 for( var r=0;r<10;r++){ 
-	$scope.nposts.push({title:response.data.items[r].title,id:response.data.items[r].id,pic:response.data.items[r].pic});
+	$scope.nposts.push({title:response.data.items[r].title,id:response.data.items[r].id,type:response.data.items[r].type,pic:response.data.items[r].pic});
 	 }
 	document.getElementById('catload').value=ides;
 	 //$scope.stuffs.push({title: File_Name, id: ids});
@@ -173,7 +173,7 @@ $.mobile.changePage( "#page4", { transition: "fade"} );
 $scope.page3 = function(){
 $.mobile.changePage( "#page3", { transition: "fade"} );
 }; 
-
+////////////////////////////////////////////////////////// لیست دانلود
 $scope.list_dl = function () {
 $.mobile.changePage( "#page5", { transition: "fade"} );
 todoServicez.list_dl().then(function(items)
