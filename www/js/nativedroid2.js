@@ -571,7 +571,7 @@
 
                 _self.getSearchInputObj().autocomplete({
                         delay: 500,
-                        minLength: 3,
+                        minLength: 4,
                         source: _self.options.source,
                         select: function(e, ui) {
                             if (typeof ui.item !== 'undefined' && typeof ui.item.value !== 'undefined') {

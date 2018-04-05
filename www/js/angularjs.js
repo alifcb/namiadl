@@ -5,6 +5,7 @@ App.controller('CenterCTRL', function ($scope,$http,todoServicez,$sce) {
  $scope.stuffs = [];
   $scope.nposts=[];
 $scope.video=false;	
+$scope.audio=false;	
 $scope.panel="pages/panel.left.html";
 $scope.progrshow=true;
 $scope.loadshow=false;
@@ -35,6 +36,13 @@ setTimeout(function(){ $http.get("http://namiadownload.ir/reg/manage/api.php?mob
 
 });	
 }, 1000);
+//////////////////////////////////////////// show blog	
+setTimeout(function(){ $http.get("http://namiadownload.ir/reg/manage/api.php?blog").then(function(response) {
+	$scope.blog = response.data.items;
+	document.getElementById('blog_flag').value=1;
+
+});	
+}, 1500);
 ///////////////////////////////////////////search 
 setTimeout(function(){
   $http.get("http://namiadownload.ir/reg/manage/search.json").then(function(response) { 
@@ -59,6 +67,13 @@ setTimeout(function(){
 	document.getElementById('music_flag').value=1;
 });	
 }, 2000);
+//////////////////////////////////////////// show slider	
+setTimeout(function(){
+ $http.get("http://namiadownload.ir/reg/manage/api.php?slider").then(function(response) {
+	$scope.slider = response.data.items;
+	document.getElementById('slider_flag').value=1;
+});	
+}, 1000);
 //////////////////////show n load post
 $scope.npost = function (ides,news) {
 	$scope.progrshow3=true;//alert(ides);
@@ -82,26 +97,38 @@ $scope.npost = function (ides,news) {
 };
 
 ////////////////////////////////////////// show post
-$scope.post = function (ides) {
+$scope.post = function (ides,type) {
+	$scope.vide480="";
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
 	//document.getElementById('rele_flag').value=0;
 	$.mobile.changePage( "#page2", { transition: "slideup"} );
  $scope.relet ={};
-	$http.get("http://namiadownload.ir/reg/manage/api.php?post="+ides).then(function(response) {
+	$http.get("http://namiadownload.ir/reg/manage/api.php?post="+ides+"&type="+type).then(function(response) {
 	$scope.posto = response.data.items[0];
 
-	for (var i = 0; i < response.data.items[0].link.length; i++) {
+	for (var i = 0; i < response.data.items[0].link.length; i++) { 		
 	todoServicez.selfile(response.data.items[0].id,response.data.items[0].link[i].name,i).then(function(iol)
 {if(iol!=9){
-	 //alert(iol);
+	if($scope.posto.type==9){ var strrd=response.data.items[0].link[i].linko;
+		njj=strrd.search("480p");
+	if(njj!=-1){$scope.vide480=response.data.items[0].link[i].linko;}}
+	  if($scope.posto.type==953){$scope.postaudio="file:///storage/sdcard0/Namiadl/"+response.data.items[0].link[0].name;
+	  
+		  $scope.audio=true;document.getElementById(response.data.items[0].id+response.data.items[0].link[iol].name).style.display="none";
+		  var myaudio = document.getElementById("audion");
+		   //alert(myaudio);
+ myaudio.load();}else{$scope.audio=false;}
 	document.getElementById(response.data.items[0].id+response.data.items[0].link[iol].name).innerHTML=' اجرای '+response.data.items[0].link[iol].text;
-}
+}else if($scope.posto.type!=953){$scope.audio=false;}
 });
 	}
+	 if($scope.posto.type==9){if($scope.vide480==""){$scope.vide480=response.data.items[0].link[0].linko;} }
+	
 	 if($scope.posto.type==9){$scope.video=true;
+	 	 console.log($scope.vide480);
 	   var myVideo = document.getElementById("videon"); 
- myVideo.load();}else{$scope.video=false;}
+ myVideo.load();myVideo.play();}else{$scope.video=false;}
  
 ////////////////////////////////////////// show relet post	
 
@@ -192,7 +219,7 @@ document.getElementById(ids+File_Name).style.display="none";
     });
 //Toast_Material({ content : "دریافت فایل آغاز شد", updown:"bottom", position:"center", align:"center" });	
 
-todoServicez.dlfile(ids,File_Name,1,title,pic);
+//todoServicez.dlfile(ids,File_Name,1,title,pic);
 var urls = URL.replace('&amp;','&');
 //alert(urls);
 var fileTransfer = new FileTransfer();
@@ -221,6 +248,7 @@ false,
 			document.getElementById('pr'+File_Name+ids).style.width=perc+'%';
 			document.getElementById('nd'+File_Name+ids).innerHTML=perc+'%';
 			if(perc==100){
+todoServicez.dlfile(ids,File_Name,1,title,pic);			
 document.getElementById(ids+File_Name).style.display="block";
 new $.nd2Toast({   message : "دانلود فایل کامل شد",ttl : 4000});
 				//alert(perc);

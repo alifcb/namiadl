@@ -22,6 +22,8 @@
    <input  id="film_flag" value="0" type="hidden">
    <input  id="music_flag" value="0" type="hidden">
    <input  id="mobile_flag" value="0" type="hidden">
+    <input  id="blog_flag" value="0" type="hidden">
+    <input  id="slider_flag" value="0" type="hidden">
    <input  id="rele_flag" value="0" type="hidden">
    <input  id="page_back" value="one" type="hidden">
    <input  id="numload" value="0" type="hidden">
@@ -68,18 +70,15 @@
              
  	 <div role="main" class="ui-content" data-inset="false" ng-show="loadshow">   
      <div class="ow1 owl-carousel owl-theme">
-    <div class="item"><img alt="namia" src="img/examples/a.jpg"></div>
-    <div class="item"><img alt="namia" src="img/examples/b.jpg"></div>
-    <div class="item"><img alt="namia" src="img/examples/c.jpg"></div>
-    <div class="item"><img alt="namia" src="img/examples/d.jpg"></div>
+    <div class="item" ng-repeat="xcs in slider"><a ng-click="post(xcs.id,xcs.type);"><img alt="namia" src="{{xcs.pic}}"></a></div>
 </div>
 <h6 class="nd2-title">
-	بازی و نرم افزار موبایل <a class="more"   ng-href="#page3" ng-click="npost(5,1)">بیشتر</a>
+	بازی و نرم افزار موبایل <a class="more"   ng-href="#page3" ng-click="npost(5,1)">موارد بیشتر</a>
 </h6>
  <div class=" ow2 owl-carousel owl-theme">
 <div class="item" ng-repeat="xcm in mobile">
 <div class="nd2-card">
-<a ng-click="post(xcm.id);">
+<a ng-click="post(xcm.id,xcm.type);">
 <div class="card-media" >
 		<img alt="namia" height="150px" src="{{xcm.pic}}">
 	<div class="card-title has-supporting-text">
@@ -90,12 +89,12 @@
 </div></div>
 </div>
 <h6 class="nd2-title">
-	آخرین فیلم های سینمایی <a class="more"   ng-href="#page3" ng-click="npost(9,1)">بیشتر</a>
+	آخرین فیلم های سینمایی <a class="more"   ng-href="#page3" ng-click="npost(9,1)">موارد بیشتر</a>
 </h6>
          <div class=" ow3 owl-carousel owl-theme">
 <div class="item" ng-repeat="xcv in film">
 <div class="nd2-card">
-<a ng-click="post(xcv.id);"  >
+<a ng-click="post(xcv.id,xcv.type);"  >
 <div class="card-media" >
 		<img alt="namia" height="150px" src="{{xcv.pic}}">
 	<div class="card-title has-supporting-text">
@@ -112,7 +111,7 @@
          <div class=" ow4 owl-carousel owl-theme">
 <div class="item" ng-repeat="xcz in music">
 <div class="nd2-card">
-<a ng-click="post(xcz.id);" >
+<a ng-click="post(xcz.id,xcz.type);" >
 <div class="card-media" >
 		<img alt="namia" height="150px" src="{{xcz.pic}}">
 	<div class="card-title has-supporting-text">
@@ -124,17 +123,19 @@
  
 </div>
 <h6 class="nd2-title">
-	Medium 2p <a class="more" ng-click="post(8724);" ng-href="#page3">موارد بیشتر</a>
+	Medium 2p <a class="more" ng-click="npost(2,1);" ng-href="#page3">موارد بیشتر</a>
 </h6>
          <div class=" ow6 owl-carousel owl-theme">
-<div class="item"><div class="nd2-card">
-<div class="card-media">
-		<img alt="namia" src="img/examples/d.jpg">
+<div class="item" ng-repeat="xcb in blog">
+<div class="nd2-card">
+<a ng-click="post(xcb.id,xcb.type);" >
+<div class="card-media" >
+		<img alt="namia" height="150px" src="{{xcb.pic}}">
 	<div class="card-title has-supporting-text">
-		<h3 class="card-primary-title">Biomaterial</h3>
-		<h5 class="card-subtitle">From Wikipedia, the free encyclopedia</h5>
+		<h5 class="card-subtitle">{{xcb.title}}</h5>
 	</div>
 </div>
+</a>
 </div></div>
  
 </div>
@@ -159,18 +160,16 @@
 {{posto.content}}	
 </div>
 <video ng-show="video" controls id="videon" width="100%" height="210" >
-<source type="video/mp4" src="{{posto.video}}"></source>
-<span style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" data-mce-type="bookmark" class="mce_SELRES_start">﻿</span>مرورگر شما قادر به نمایش نیست<span style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" data-mce-type="bookmark" class="mce_SELRES_end">﻿</span>
+<source type="video/mp4" src="{{vide480}}"></source>
 </video>
+<audio ng-show="audio" controls id="audion" width="100%">
+  <source src="{{postaudio}}" type="audio/mpeg"></source>
+</audio> 
 <div class="card-supporting-text has-action"   >
  
  <a  ng-repeat="xcl in posto.link" ng-click="download(xcl.linko,xcl.name,posto.id,posto.title,posto.pic)" id="{{posto.id}}{{xcl.name}}" class=" ui-btn ui-btn-icon-right ui-mini ui-btn-raised clr-warning" >{{xcl.text}}	</a>
 </div>
-<!--<div id="progr" ng-show="progr">
-<div id="showbar"></div>
-<div class="progress">
-  <div class="determinate" id="bloader"  style="width:0%"></div>
-</div></div>-->
+ 
 </div>            
 <h6 class="nd2-title">
  محتوا مشابه
@@ -233,7 +232,7 @@
 		لیست محتوا های دانلود شده
 	</li>
             <li ng-repeat="xnp in listdl" >
-		<a  ng-click="post(xnp.ids);" >
+		<a  ng-click="post(xnp.ids,xnp.type);" >
 			<div class="nd2-card card-media-right card-media-small" style="height:100px">
 					<div class="card-media">
 						<img src="{{xnp.pic}}">
@@ -267,7 +266,10 @@
     <script type="text/javascript"> 
     
            app.initialize();
-		   
+var int_slider = setInterval(function(){ sss() }, 1200);
+function sss(){
+ var sliderfd=document.getElementById('slider_flag').value;
+ if(sliderfd==1){ clearInterval(int_slider);		   
 		$('.ow1').owlCarousel({
     loop:true,
 	rtl:true,
@@ -279,6 +281,8 @@
      items:1,
     
 })
+ }}
+
 var int_mobile = setInterval(function(){ ssm() }, 2000);
 function ssm(){
  var flagfd=document.getElementById('mobile_flag').value;
@@ -365,7 +369,12 @@ function rele(){
    }, 500);
 $('.ow5').trigger('refresh.owl.carousel');
 }
-		$('.ow6').owlCarousel({
+
+var int_blog = setInterval(function(){ ssb() }, 2000);
+function ssb(){
+ var flagfb=document.getElementById('blog_flag').value;
+ if(flagfb==1){ clearInterval(int_blog);
+$('.ow6').owlCarousel({
     loop:true,
 	rtl:true,
     margin:10,
@@ -374,6 +383,7 @@ $('.ow5').trigger('refresh.owl.carousel');
 	dots:false,
 	items:2
 });
+ }}
     </script>
 </body>
 </html>
