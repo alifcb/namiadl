@@ -13,7 +13,20 @@
             "cordova-plugin-network-information": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-console": {},
-            "cordova-plugin-device": {}
+            "cordova-plugin-device": {},
+            "cordova-plugin-battery-status": {},
+            "cordova-plugin-camera": {},
+            "cordova-plugin-contacts": {},
+            "cordova-plugin-device-motion": {},
+            "cordova-plugin-device-orientation": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-globalization": {},
+            "cordova-plugin-media": {},
+            "cordova-plugin-media-capture": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-vibration": {},
+            "cordova-plugin-whitelist": {}
         }
     },
     "dependencies": {
@@ -25,6 +38,19 @@
         "cordova-plugin-device": "2.0.1",
         "cordova-plugin-inappbrowser": "2.0.2",
         "cordova-plugin-network-information": "2.0.1",
-        "cordova-plugin-splashscreen": "5.0.2"
+        "cordova-plugin-splashscreen": "5.0.2",
+        "cordova-plugin-battery-status": "~1.1.1",
+        "cordova-plugin-camera": "~2.1.1",
+        "cordova-plugin-contacts": "~2.0.1",
+        "cordova-plugin-device-motion": "~1.2.0",
+        "cordova-plugin-device-orientation": "~1.0.2",
+        "cordova-plugin-dialogs": "~1.2.0",
+        "cordova-plugin-geolocation": "~2.1.0",
+        "cordova-plugin-globalization": "~1.0.3",
+        "cordova-plugin-media": "~2.2.0",
+        "cordova-plugin-media-capture": "~1.2.0",
+        "cordova-plugin-statusbar": "~2.1.2",
+        "cordova-plugin-vibration": "~2.1.0",
+        "cordova-plugin-whitelist": "~1.2.1"
     }
 }

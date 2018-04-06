@@ -75,11 +75,9 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
-    <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="7000" />
-    <preference name="disable-cursor" value="false" />
+    <preference name="SplashScreenDelay" value="4000" />
     <preference name="android-minSdkVersion" value="14" />
 </widget>
