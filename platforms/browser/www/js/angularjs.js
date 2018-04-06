@@ -59,7 +59,7 @@ source : dsdf,
 });
 	
 });  
-}, 2000);
+}, 3000);
 //////////////////////////////////////////// show music	
 setTimeout(function(){
  $http.get("http://namiadownload.ir/reg/manage/api.php?music").then(function(response) {
