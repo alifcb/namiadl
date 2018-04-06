@@ -1,0 +1,13 @@
+{
+    "name": "com.namiaweb.namiadl",
+    "version": "1.0.1",
+    "displayName": "نامیا دانلود",
+    "cordova": {
+        "platforms": [
+            "android"
+        ]
+    },
+    "dependencies": {
+        "cordova-android": "~6.2.3"
+    }
+}
