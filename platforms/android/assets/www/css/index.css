@@ -302,3 +302,7 @@ direction:rtl !important;}
 }
 #leftpanel{z-index:999999999 !important;}
 a{z-index:444444;}
+.about p{text-align:justify;
+direction:rtl;
+padding:10px 15px;}
+.about h3{ color:#1798B3; text-align:right; padding:0 20px;}

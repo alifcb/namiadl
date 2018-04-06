@@ -70,7 +70,13 @@ document.addEventListener("backbutton", function(e){
            navigator.app.exitApp();
        }
        else if($.mobile.activePage.is('#page2')){
- $.mobile.changePage( "#one", { transition: "slideup"} );
+  var rel=document.getElementById('page_rel').value;
+  var backs=document.getElementById('page_back').value;
+  //console.log(rel);
+  //console.log(backs);
+  if(rel==backs){$.mobile.changePage( "#one", { transition: "slideup"} );}else{
+	 $.mobile.changePage( "#"+backs, { transition: "slideup"} ); 
+	 }
   //$.mobile.changePage( "#one", { transition: "fade"} );
         }else if($.mobile.activePage.is('#page4')){
   $.mobile.changePage( "#page2", { transition: "slideup"} );
@@ -78,6 +84,8 @@ document.addEventListener("backbutton", function(e){
        }else if($.mobile.activePage.is('#page3')){
   $.mobile.changePage( "#one", { transition: "slideup"} );
          }else if($.mobile.activePage.is('#page5')){
+  $.mobile.changePage( "#one", { transition: "slideup"} );
+       }else if($.mobile.activePage.is('#about')){
   $.mobile.changePage( "#one", { transition: "slideup"} );
        }
        else {

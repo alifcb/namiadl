@@ -25,43 +25,14 @@
     <input  id="blog_flag" value="0" type="hidden">
     <input  id="slider_flag" value="0" type="hidden">
    <input  id="rele_flag" value="0" type="hidden">
+   <input  id="page_rel" value="one" type="hidden">
    <input  id="page_back" value="one" type="hidden">
    <input  id="numload" value="0" type="hidden">
    <input  id="catload" value="0" type="hidden">
    <input  id="version" value="1" type="hidden">
 		<div data-role="page" class="nd2-no-menu-swipe" id="one">
 					<!-- panel left -->
-			<div data-role="panel" id="leftpanel2" data-position="right" data-display="overlay" data-position-fixed="true" >
-				<div class="nd2-sidepanel-profile wow fadeInDown">
-					<img class="profile-background" src="img/examples/a.jpg" />
-					<div class="row">
-						<div class="col-xs-8">
-							<div class="box profile-text">
-								<strong>نامیا دانلود</strong>
-								<span class="subline">طرح دانلود بی نهایت</span>
-							</div>
-						</div>
-                        <div class="col-xs-4 center-xs">
-							<div class="box">
-								<img class="profile-thumbnail" src="img/examples/b.jpg" />
-							</div>
-						</div>
-					</div>
-				</div>
-				<ul data-role="listview"   data-inset="false">
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost()"   data-icon="false"><i class="zmdi zmdi-view-web"></i>  لیست دانلود های گذشته</a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().list_dl()"  data-icon="false"><i class="zmdi zmdi-assignment-returned"></i>  لیست دانلود های گذشته</a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().page4()"  data-icon="false"><i class="zmdi zmdi-download"></i>  لیست دانلود ها در حال اجرا</a></li>
-				</ul>
-                <ul data-role="listview"   data-inset="false">
-					<li data-role="list-divider">دسته بندی</li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(9,1)" data-icon="false"><i class="zmdi zmdi-movie"></i>  فیلم</a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(953,1)" data-icon="false"><i class="zmdi zmdi-collection-music"></i>  موزیک</a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().npost(5,1)" data-icon="false"><i class="zmdi zmdi-android"></i>  برنامه موبایل</a></li>
-				</ul>
-				<hr class="inset">
-			</div>
-			<!-- /panel left -->
+			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
  				<a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
@@ -244,6 +215,22 @@
 		</a>
 	</li>
             </ul>
+            </div>
+            
+</div>
+  <div data-role="page" id="about" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left6.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">نامیا دانلود</h1>
+			</div>
+ 			<div role="main" class="ui-content about" data-inset="false"  >
+            <h3>درباره ما</h3>
+           <p>نامیا دانلود یک از محصولات شرکت گسترش وب نامیا می باشد که با همکاری مخابرات استان کرمانشاه در جهت ایجاد سرویس ارزش افزوده مرکز محتوا راه اندازی شده است. در این وب سایت کاربران سرویس ADSL  مخابرات استان کرمانشاه می توانند با خرید بسته های زمان دار به محتوا موجود در سایت نامیا دانلود و همچنین لینک های متصل به سرور های نامیا به صورت رایگان استفاده نمایند.</p>
+           <p> ایمیل: info@namiadownload.ir<br>
+تلفن: 08338235145<br>
+تلفن: 08338234495<br>
+آدرس: کرمانشاه - سه راه 22 بهمن پارک علم و فناوری طبقه 4 واحد 422 </p>
             </div>
             
 </div>

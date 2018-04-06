@@ -22,7 +22,7 @@ $scope.wopen = function(links) {
    message : "نسخه جدید از برنامه منتشر شده",  
    action : {title : "دریافت",  
   
-    fn : function() {   window.open("http://na1.namiadownload.ir/music/96-12/Fereydoun%20Aasraaei%20-%20Arezoom%20Ine.mp3", '_system', '');
+    fn : function() {   window.open("http://app.namiadownload.ir/apk/97-1/namiadl.apk", '_system', '');
      },  
 	 color : "red" },ttl : 8000
     });
@@ -59,7 +59,7 @@ source : dsdf,
 });
 	
 });  
-}, 3000);
+}, 2000);
 //////////////////////////////////////////// show music	
 setTimeout(function(){
  $http.get("http://namiadownload.ir/reg/manage/api.php?music").then(function(response) {
@@ -76,6 +76,9 @@ setTimeout(function(){
 }, 1000);
 //////////////////////show n load post
 $scope.npost = function (ides,news) {
+	var relback=document.getElementById('page_rel').value;
+	document.getElementById('page_back').value=relback;
+	document.getElementById('page_rel').value='page3';	
 	$scope.progrshow3=true;//alert(ides);
 	if(news==1){$scope.nposts=[];
 	$.mobile.changePage( "#page3", { transition: "fade"} );
@@ -101,6 +104,10 @@ $scope.post = function (ides,type) {
 	$scope.vide480="";
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
+	var relback=document.getElementById('page_rel').value;
+	document.getElementById('page_back').value=relback;
+	document.getElementById('page_rel').value='page2';
+	
 	//document.getElementById('rele_flag').value=0;
 	$.mobile.changePage( "#page2", { transition: "slideup"} );
  $scope.relet ={};
@@ -134,7 +141,6 @@ $scope.post = function (ides,type) {
 
 $http.get("http://namiadownload.ir/reg/manage/api.php?cat="+$scope.posto.type+"&numb="+0).then(function(response) {
 	
-	document.getElementById('page_back').value='page2';
 	 $scope.progrshow2=false;
 	$scope.loadshow2=true;
 	var dflaf=document.getElementById('rele_flag').value;
@@ -168,13 +174,25 @@ $http.get("http://namiadownload.ir/reg/manage/api.php?cat="+$scope.posto.type+"&
 };
 
 $scope.page4 = function(){
+var relback=document.getElementById('page_rel').value;
+	document.getElementById('page_back').value=relback;
+	document.getElementById('page_rel').value='page4';	
 $.mobile.changePage( "#page4", { transition: "fade"} );
 };
-$scope.page3 = function(){
-$.mobile.changePage( "#page3", { transition: "fade"} );
-}; 
+$scope.openb = function(links){
+window.open(links, '_system', ''); 
+};
+$scope.inappb = function(links){ 
+ cordova.InAppBrowser.open(links, '_blank', 'location=yes');
+};
+$scope.abouts = function(){ 
+$.mobile.changePage( "#about", { transition: "fade"} );
+};
 ////////////////////////////////////////////////////////// لیست دانلود
 $scope.list_dl = function () {
+	var relback=document.getElementById('page_rel').value;
+	document.getElementById('page_back').value=relback;
+	document.getElementById('page_rel').value='page5';	
 $.mobile.changePage( "#page5", { transition: "fade"} );
 todoServicez.list_dl().then(function(items)
 {//alert(items[0].ids);

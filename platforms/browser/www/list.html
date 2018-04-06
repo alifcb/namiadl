@@ -1,0 +1,16 @@
+<li ng-repeat="xnp in nposts" >
+		<a  ng-click="post(xnp.id,xnp.type);" >
+			<div class="nd2-card card-media-right card-media-small" style="height:100px">
+
+
+					<div class="card-media">
+						<img src="{{xnp.pic}}">
+					</div>
+
+					<div class="card-title">
+						<h5 class="card-subtitle">{{xnp.title}}</h5>
+					</div>
+
+				</div>
+		</a>
+	</li>
