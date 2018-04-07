@@ -30,7 +30,7 @@
    <input  id="numload" value="0" type="hidden">
    <input  id="catload" value="0" type="hidden">
    <input  id="version" value="1" type="hidden">
-		<div data-role="page" class="nd2-no-menu-swipe" id="one">
+<div data-role="page" class="nd2-no-menu-swipe" id="one">
 					<!-- panel left -->
 			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
@@ -41,12 +41,12 @@
              
  	 <div role="main" class="ui-content" data-inset="false" ng-show="loadshow">   
      <div class="ow1 owl-carousel owl-theme">
-    <div class="item" ng-repeat="xcs in slider"><a ng-click="post(xcs.id,xcs.type);"><img alt="namia" src="{{xcs.pic}}"></a></div>
+    <div class="item" ng-repeat="xcs in slider"><a ng-click="xpost(xcs.id,xcs.type,xcs.flag,xcs.title);"><img alt="namia" src="{{xcs.pic}}"></a></div>
 </div>
 <h6 class="nd2-title">
 	بازی و نرم افزار موبایل <a class="more"   ng-href="#page3" ng-click="npost(5,1)">موارد بیشتر</a>
 </h6>
- <div class=" ow2 owl-carousel owl-theme">
+<div class=" ow2 owl-carousel owl-theme">
 <div class="item" ng-repeat="xcm in mobile">
 <div class="nd2-card">
 <a ng-click="post(xcm.id,xcm.type);">
@@ -130,13 +130,13 @@
 <div class="card-supporting-text has-action" ng-bind-html="posto.content"  >
 {{posto.content}}	
 </div>
-<video ng-show="video" controls id="videon" width="100%" height="210" >
+<video ng-show="video" controls id="videon" poster="img/sceen.jpg" width="100%" height="210" >
 <source type="video/mp4" src="{{vide480}}"></source>
 </video>
-<audio ng-show="audio" controls id="audion" width="100%">
+<audio ng-show="audio" controls id="audion" style="width:100%">
   <source src="{{postaudio}}" type="audio/mpeg"></source>
 </audio> 
-<div class="card-supporting-text has-action"   >
+<div class="card-supporting-text has-action" >
  
  <a  ng-repeat="xcl in posto.link" ng-click="download(xcl.linko,xcl.name,posto.id,posto.title,posto.pic)" id="{{posto.id}}{{xcl.name}}" class=" ui-btn ui-btn-icon-right ui-mini ui-btn-raised clr-warning" >{{xcl.text}}	</a>
 </div>
@@ -275,7 +275,7 @@ function ssm(){
  var flagfd=document.getElementById('mobile_flag').value;
  if(flagfd==1){ clearInterval(int_mobile);
  $('.ow2').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -290,7 +290,7 @@ function ssd(){
  var flagf=document.getElementById('film_flag').value;
  if(flagf==1){ clearInterval(int_film);
  $('.ow3').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -305,7 +305,7 @@ function ssx(){
  var flagfx=document.getElementById('music_flag').value;
  if(flagfx==1){ clearInterval(int_music);
  $('.ow4').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -318,7 +318,7 @@ function ssx(){
  }
 function postll(){ 
  $('.owl5').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -327,7 +327,7 @@ function postll(){
 	items:2,
   }); 
   $('.reltwo').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -344,7 +344,7 @@ function rele(){
   if(flagr==1){ 
 // clearInterval(int_rel);
  $('.ow5').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,
@@ -362,7 +362,7 @@ function ssb(){
  var flagfb=document.getElementById('blog_flag').value;
  if(flagfb==1){ clearInterval(int_blog);
 $('.ow6').owlCarousel({
-    loop:true,
+    loop:false,
 	rtl:true,
     margin:10,
 	stagePadding: 30,

@@ -306,3 +306,12 @@ a{z-index:444444;}
 direction:rtl;
 padding:10px 15px;}
 .about h3{ color:#1798B3; text-align:right; padding:0 20px;}
+.owl-carousel .owl-stage {
+	padding-left:10px !important;
+	padding-right:10px !important;
+}
+.ow1 .owl-stage {
+	padding-left:0px !important;
+	padding-right:0px !important;
+	
+}

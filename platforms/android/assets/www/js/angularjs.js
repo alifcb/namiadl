@@ -74,6 +74,10 @@ setTimeout(function(){
 	document.getElementById('slider_flag').value=1;
 });	
 }, 1000);
+//////////////////////show slider
+$scope.xpost = function (ides,type,flag,title) {
+	if(flag==1){$scope.post(ides,type);}else if(flag==2){$scope.npost(ides,1);}else if(flag==3){$scope.inappb(title);}else if(flag==4){$scope.openb(title);}
+};
 //////////////////////show n load post
 $scope.npost = function (ides,news) {
 	var relback=document.getElementById('page_rel').value;
@@ -135,7 +139,8 @@ $scope.post = function (ides,type) {
 	 if($scope.posto.type==9){$scope.video=true;
 	 	 console.log($scope.vide480);
 	   var myVideo = document.getElementById("videon"); 
- myVideo.load();myVideo.play();}else{$scope.video=false;}
+ myVideo.load();
+ myVideo.play();}else{$scope.video=false;}
  
 ////////////////////////////////////////// show relet post	
 

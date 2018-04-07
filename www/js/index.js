@@ -64,6 +64,8 @@ function successCB() {
 /////////////////////////////////////////////////////////////back button
 document.addEventListener("backbutton", function(e){
 	//alert($.mobile.activePage.attr('id'));
+	var myVideo = document.getElementById("videon"); 
+	 myVideo.stop();
        if($.mobile.activePage.is('#one')){
 		       
            e.preventDefault();
