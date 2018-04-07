@@ -105,6 +105,8 @@ $scope.npost = function (ides,news) {
 
 ////////////////////////////////////////// show post
 $scope.post = function (ides,type) {
+	 var myVideo = document.getElementById("videon"); 
+ myVideo.pause();
 	$scope.vide480="";
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
