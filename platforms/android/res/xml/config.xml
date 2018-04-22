@@ -74,7 +74,6 @@
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="permissions" value="none" />
-    <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="SplashScreen" value="splash" />

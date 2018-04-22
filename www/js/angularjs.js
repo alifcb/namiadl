@@ -208,8 +208,9 @@ todoServicez.list_dl().then(function(items)
 };
 
 /////////////////////////////////// download mohadad voice
-$scope.download = function (URL,File_Name,ids,title,pic) 
-{ 
+$scope.download = function (URL,File_Name,ids,title,pic,type) 
+{
+for(var ei=0; ei<$scope.stuffs.length;ei++){if($scope.stuffs[ei].id==ids){new $.nd2Toast({   message :"این فایل در حال دانلود است !!",ttl : 3000});return 0;}};
 var File_Name = File_Name.replace('&amp;','&');
 $scope.progr=true;
 todoServicez.selfile(ids,File_Name,1).then(function(items)
@@ -276,6 +277,7 @@ false,
 todoServicez.dlfile(ids,File_Name,1,title,pic);			
 document.getElementById(ids+File_Name).style.display="block";
 new $.nd2Toast({   message : "دانلود فایل کامل شد",ttl : 4000});
+$scope.openb("file:///storage/sdcard0/Namiadl/"+File_Name);
 				//alert(perc);
 				}
 			//statusDom.innerHTML = perc + "% loaded...";

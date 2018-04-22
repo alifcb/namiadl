@@ -138,7 +138,7 @@
 </audio> 
 <div class="card-supporting-text has-action" >
  
- <a  ng-repeat="xcl in posto.link" ng-click="download(xcl.linko,xcl.name,posto.id,posto.title,posto.pic)" id="{{posto.id}}{{xcl.name}}" class=" ui-btn ui-btn-icon-right ui-mini ui-btn-raised clr-warning" >{{xcl.text}}	</a>
+ <a  ng-repeat="xcl in posto.link" ng-click="download(xcl.linko,xcl.name,posto.id,posto.title,posto.pic,posto.type)" id="{{posto.id}}{{xcl.name}}" class=" ui-btn ui-btn-icon-right ui-mini ui-btn-raised clr-warning" >{{xcl.text}}	</a>
 </div>
  
 </div>            
@@ -180,7 +180,7 @@
             <ul data-role="listview" class="listdl" data-icon="false" id="progme">
              
             <div class="card-title " ng-repeat="stuff in stuffs">
-            <li ><div id="nd{{stuff.title}}{{stuff.id}}">0%</div><div id="{{stuff.title}}">{{stuff.title}}</div>
+            <li ng-click="post(stuff.id,stuff.type);"><div id="nd{{stuff.title}}{{stuff.id}}">0%</div><div id="{{stuff.title}}">{{stuff.title}}</div>
             <div class="progress"><div class="determinate" id="pr{{stuff.title}}{{stuff.id}}"  style="width:0%"></div>
             </div></li>
             </div>
